@@ -10,8 +10,8 @@ from django.shortcuts import redirect
 # Затем мы импортируем модель (Post).
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    # мы создали переменную для QuerySet: posts
-    # есть возможность компелировать методы filter & order_by ??? уточнить !!!!
+    # мы создали переменную для QuerySets: posts
+    # QuerySets позволяет сцеплять методы filter & order_by
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
